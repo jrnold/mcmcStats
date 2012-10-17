@@ -7,10 +7,19 @@ Title: MCMC Postprocessing Functions
 Description: Functions related to MCMC. Mostly stuff
     in coda, but rewritten to solve some usability issues
     and to make better use of generic functions.
+Depends:
+    methods
 Imports:
-    mcmcse
+    mcmcse,
+    coda
 Suggests:
     testthat,
     roxygen2
 Collate:
     'mcmcStats-package.r'
+    'gelmanDiag.R'
+    'gelmanDiagSplit.R'
+    'gewekeDiag.R'
+    'mcmcse.R'
+    'misc.R'
+    'utilities.R'

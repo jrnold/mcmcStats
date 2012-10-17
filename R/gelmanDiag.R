@@ -37,7 +37,7 @@ setMethod("gelmanDiag", "list", gelman_diag_list)
 
 
 gelman_diag_numeric <- function(x, chain_id) {
-    gelman_diag(split(x, chain_id))
+    gelmanDiag(split(x, chain_id))
 }
 setMethod("gelmanDiag", "numeric", gelman_diag_numeric)
 
