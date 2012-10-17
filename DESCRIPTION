@@ -1,0 +1,16 @@
+Package: mcmcStats
+Maintainer: Jeffrey Arnold <jeffrey.arnold@gmail.com>
+Author: Jeffrey Arnold
+Version: 1.0.0
+License: GPL-3
+Title: MCMC Postprocessing Functions
+Description: Functions related to MCMC. Mostly stuff
+    in coda, but rewritten to solve some usability issues
+    and to make better use of generic functions.
+Imports:
+    mcmcse
+Suggests:
+    testthat,
+    roxygen2
+Collate:
+    'mcmcStats-package.r'
