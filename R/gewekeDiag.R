@@ -1,3 +1,5 @@
+## Copyright (2012) coda authors
+## Copyright (2012) Jeffrey Arnold
 geweke_diag_default <- function(x, frac1 = 0.1, frac2 = 0.5) {
     if (frac1 < 0 || frac1 > 1) {
         stop("frac1 invalid")
