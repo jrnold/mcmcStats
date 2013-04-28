@@ -30,7 +30,7 @@ waic.matrix <- function(x, method=2) {
   } else {
     p <- 2 * sum(aaply(x, 1, function(y) log(mean(exp(y))) - mean(y)))
   }
-  list(waic = -2 * (lppd - p), loglik = lppd, p = p, n = nrow(x))
+  new("WAIC", -2 * (lppd - p), loglik = lppd, b = p, n = nrow(x))
 }
 
 #' @rdname waic-methods
