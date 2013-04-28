@@ -1,4 +1,4 @@
-Package: mcmcStats
+Package: mcmcstats
 Maintainer: Jeffrey Arnold <jeffrey.arnold@gmail.com>
 Author: Jeffrey Arnold
 Version: 1.0.0
@@ -8,18 +8,23 @@ Description: Functions related to MCMC. Mostly stuff
     in coda, but rewritten to solve some usability issues
     and to make better use of generic functions.
 Depends:
-    methods
+    methods,
 Imports:
     mcmcse,
+    plyr,
     coda
 Suggests:
     testthat,
     roxygen2
 Collate:
-    'mcmcStats-package.r'
-    'gelmanDiag.R'
-    'gelmanDiagSplit.R'
-    'gewekeDiag.R'
-    'mcmcse.R'
-    'misc.R'
+    'mcmcstats-package.R'
+    'infocriterion-class.R'
     'utilities.R'
+    'gewekeDiag.R'
+    'misc.R'
+    'waic.R'
+    'ess-methods.R'
+    'gelmanDiag-methods.R'
+    'gelmanDiagSplit-methods.R'
+    'mcse-methods.R'
+    'mcseq-methods.R'

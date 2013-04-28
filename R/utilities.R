@@ -1,3 +1,6 @@
+#' @include mcmcstats-package.R
+NULL
+
 between <- function(x, x.min=-Inf, x.max=Inf,
                     include.left = TRUE, include.right = TRUE) {
     if (include.left) {

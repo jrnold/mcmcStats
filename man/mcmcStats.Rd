@@ -2,8 +2,8 @@
 \name{mcmcStats}
 \alias{mcmcStats}
 \alias{mcmcStats-package}
-\title{mcmcStats}
+\title{mcmcstats package}
 \description{
-  mcmcStats
+  mcmcstats package
 }
 

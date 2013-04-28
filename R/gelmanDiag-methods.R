@@ -1,26 +1,30 @@
+#' @include mcmcstats-package.R
+#' @exportMethod gelmanDiag
+NULL
+
 ## Sum of squared errors
 sumsqe <- function(x)  sum((x - mean(x))^2)
 
-##' Gelman-Rubin Criteria
-##'
-##' Gelman-Rubin univariate potential reduction in scale factor
-##' (PRSF), generalized for chains of differing lengths.
-##'
-##' @param x Object with parameters
-##' @param chain_id chain identifier. Used to \code{\link{split}}
-##' \code{x} when \code{x} is a \code{numeric} or \code{matrix}.
-##'
-##' @references Stan Manual, Section 27.2.
-##'
-##' @aliases gelmanDiag
-##' @aliases gelmanDiag-method
-##' @aliases gelmanDiag,list-method
-##' @aliases gelmanDiag,numeric-method
-##' @aliases gelmanDiag,matrix-method
-##' @keywords methods
-##' @docType methods
-##' @references \emph{Stan Reference Manual}, version 1.0.2.
-##' @export
+#' Gelman-Rubin Criteria
+#'
+#' Gelman-Rubin univariate potential reduction in scale factor
+#' (PRSF), generalized for chains of differing lengths.
+#'
+#' @param x Object with parameters
+#' @param chain_id chain identifier. Used to \code{\link{split}}
+#' \code{x} when \code{x} is a \code{numeric} or \code{matrix}.
+#'
+#' @references Stan Manual, Section 27.2.
+#'
+#' @aliases gelmanDiag
+#' @aliases gelmanDiag-method
+#' @aliases gelmanDiag,list-method
+#' @aliases gelmanDiag,numeric-method
+#' @aliases gelmanDiag,matrix-method
+#' @keywords methods
+#' @docType methods
+#' @references \emph{Stan Reference Manual}, version 1.0.2.
+#' @export
 setGeneric("gelmanDiag", function(x, ...) standardGeneric("gelmanDiag"))
 
 gelman_diag_list <- function(x)  {

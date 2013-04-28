@@ -1,3 +1,7 @@
+#' @include mcmcstats-package.R
+#' @exportMethod gewekeDiag
+NULL
+
 ## Copyright (2012) coda authors
 ## Copyright (2012) Jeffrey Arnold
 geweke_diag_default <- function(x, frac1 = 0.1, frac2 = 0.5) {
@@ -16,7 +20,7 @@ geweke_diag_default <- function(x, frac1 = 0.1, frac2 = 0.5) {
     y <- mapply(function(start, end) {
         y <- x[(start:end)]
         list(mean=mean(y),
-             variance=coda::spectrum0(y)$spec/length(y))
+             variance=spectrum0(y)$spec/length(y))
     }, xstart, xend, SIMPLIFY=FALSE)
     z <- (y[[1]]$mean - y[[2]]$mean) / sqrt(y[[1]]$variance + y[[2]]$variance)
     out <- structure(z, frac = c(frac1, frac2))
