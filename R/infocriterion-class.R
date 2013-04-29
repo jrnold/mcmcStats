@@ -27,8 +27,8 @@ setClass("InfoCriterion",
 
 setValidity("InfoCriterion",
             function(object) {
-              if (length(object@lppd) != length(object)) {
-                return("length(object@lppd) != length(object)")
+              if (length(object@loglik) != length(object)) {
+                return("length(object@loglik) != length(object)")
               }
               if (length(object@b) != length(object)) {
                 return("length(object@b) != length(object)")
