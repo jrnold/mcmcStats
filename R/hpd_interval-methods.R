@@ -1,3 +1,8 @@
+#' @include mcmcstats-package.R
+#' @exportMethod hpd_interval
+#' @exportClass HPD
+NULL
+
 #' @docType class
 #' @title HPD object
 #'
