@@ -10,10 +10,10 @@ NULL
 #'
 #' @description Class for information criteria (AIC, DIC, WAIC)
 #'
-#' @section: Slots
+#' @section Slots:
 #'
-#' \description{
-#' \itme{\code{.Data}}{Value of the information criterion}
+#' \describe{
+#' \item{\code{.Data}}{Value of the information criterion}
 #' \item{\code{loglik}}{Log likelihood.}
 #' \item{\code{b}}{bias correction.}
 #' \item{\code{n}}{number of observations.}

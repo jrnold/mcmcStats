@@ -1,5 +1,6 @@
 #' @include mcmcstats-package.R
 #' @include infocriterion-class.R
+#' @exportMethod waic
 NULL
 
 #' @rdname waic-methods
