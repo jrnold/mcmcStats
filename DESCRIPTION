@@ -28,3 +28,4 @@ Collate:
     'gelmanDiagSplit-methods.R'
     'mcse-methods.R'
     'mcseq-methods.R'
+    'hpd_interval-methods.R'

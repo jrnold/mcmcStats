@@ -4,9 +4,14 @@ NULL
 
 #' Monte Carlo standard error for Quantiles
 setGeneric("mcseq", function(x, ...) {
-    ret <- mcmcse::mcse.q(x, ...)
-    ifelse(is.na(ret), c(est=NA, se=NA), unlist(ret))
+  standardGeneric("mcseq")
 })
+
+setMethod("mcseq", "numeric",
+          function(x, ...) {
+            ret <- mcmcse::mcse.q(x, ...)
+            ifelse(is.na(ret), c(est=NA, se=NA), unlist(ret))
+          })
 
 setMethod("mcseq", "matrix", function(x, ...) {
     t(apply(x, 2, mcseq, ...))

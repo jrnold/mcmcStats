@@ -18,11 +18,11 @@
 }
 \section{Notes}{
   The WAIC is constructed as \deqn{WAIC = -2 * (lppd -
-  p_{WAIC})
+  p_{WAIC})}
 
   The lppd is the log pointwise predictive density, defined
   as \deqn{lppd = \sum_{i=1}^n \log \left(\frac{1}{S}
-  \sum_{s=1}^S p(y_i | \theta^s))
+  \sum_{s=1}^S p(y_i | \theta^s)\right)}
 
   The value of \eqn{p_WAIC} can be calculated in two ways,
   the method used is determined by the \code{method}
@@ -31,7 +31,7 @@
   Method 1 is defined as, \deqn{p_{WAIC1} = 2
   \sum_{i=1}^{n} (\log (\frac{1}{S} \sum_{s=1}^{S} p(y_i \
   \theta^s)) - \frac{1}{S} \sum_{s = 1}^{S} \log p(y_i |
-  \theta^s)} Method 2 is defined as, \deqn{p_{WAIC2} = 2
+  \theta^s))} Method 2 is defined as, \deqn{p_{WAIC2} = 2
   \sum_{i=1}^{n} V_{s=1}^{S} (\log p(y_i | \theta^s))}
   where \eqn{V_{s=1}^{S}} is the sample variance.
 }

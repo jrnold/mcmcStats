@@ -3,9 +3,15 @@
 NULL
 
 #' Effective Sample Size (ESS)
-setGeneric("ess", function(x, ...) {
-    mcmcse::ess(x, ...)
-})
+setGeneric("ess",
+           function(x, ...) {
+             standardGeneric("ess")
+           })
+
+setMethod("ess", "numeric",
+          function(x, ...) {
+            mcmcse::ess(x, ...)
+          })
 
 setMethod("ess", "matrix", function(x, ...) {
     t(apply(x, 2, ess, ...))

@@ -3,11 +3,15 @@
 NULL
 
 #' Monte Carlo Standard Error Methods
-
 setGeneric("mcse", function(x, ...) {
-    ret <- mcmcse::mcse(x, ...)
-    ifelse(is.na(ret), c(est=NA, se=NA), unlist(ret))
+  standardGeneric("mcse")
 })
+
+setMethod("mcse", "numeric",
+          function(x, ...) {
+            ret <- mcmcse::mcse(x, ...)
+            ifelse(is.na(ret), c(est=NA, se=NA), unlist(ret))
+          })
 
 setMethod("mcse", "matrix", function(x, ...) {
     t(apply(x, 2, mcse, ...))
