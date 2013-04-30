@@ -47,4 +47,7 @@
   Machine Learning Research,
   \url{http://www.jmlr.org/papers/v11/watanabe10a.html}.
 }
+\seealso{
+  \code{\link{waic}}
+}
 

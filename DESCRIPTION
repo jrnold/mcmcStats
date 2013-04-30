@@ -29,3 +29,4 @@ Collate:
     'mcse-methods.R'
     'mcseq-methods.R'
     'hpd_interval-methods.R'
+    'dic.R'

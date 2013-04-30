@@ -13,7 +13,7 @@ setClass("DIC", contains = "InfoCriterion")
 #' @title Deviance Information Criterion (DIC)
 #'
 #' @param x \code{numeric} vector of deviances, -2 * log-likelihood.
-#' @param dhat \code{numeric} \eqn{-2 * \log(p(y | \hat{\theta})). The deviance
+#' @param dhat \code{numeric} \eqn{-2 * \log(p(y | \hat{\theta}))}. The deviance
 #' evaluated at point-estimate (usually the mean) of the parameters of the model.
 #' @return Object of class \code{\linkS4class{DIC}}.
 #'

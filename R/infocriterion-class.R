@@ -28,7 +28,7 @@ setClass("InfoCriterion",
          contains = "numeric",
          representation =
          representation(loglik = "numeric",
-                        b = "numeric")
+                        b = "numeric"))
 
 setValidity("InfoCriterion",
             function(object) {
