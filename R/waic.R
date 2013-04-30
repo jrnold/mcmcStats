@@ -1,7 +1,12 @@
 #' @include mcmcstats-package.R
 #' @include infocriterion-class.R
+#' @exportClass WAIC
 #' @exportMethod waic
 NULL
+
+#' @rdname InfoCriterion-class
+#' @aliases WAIC-class
+setClass("WAIC", contains = "InfoCriterion")
 
 #' @rdname waic-methods
 #' @aliases waic-method
@@ -34,6 +39,8 @@ NULL
 #' Gelman, Andrew and Jessica Hwang and Aki Vehtari (2013), "Understanding Predictive Information Criteria for Bayesian Models," \url{http://www.stat.columbia.edu/~gelman/research/unpublished/waic_understand_final.pdf}.
 #'
 #' Watanabe, S. (2010). "Asymptotic Equivalence of Bayes Cross Validation and Widely Applicable Information Criterion in Singular Learning Theory", Journal of Machine Learning Research, \url{http://www.jmlr.org/papers/v11/watanabe10a.html}.
+#' 
+#' @seealso \code{\link{waic}}
 setGeneric("waic",
            function(x, ...) {
              standardGeneric("waic")
@@ -50,9 +57,9 @@ waic.matrix <- function(x, method=2) {
   # \sum_{i=1}^n \log (\frac{1}{S} \sum_{i=1}^S p(y_i | theta^S))
   lppd <- sum(aaply(x, 1, function(y) mean(exp(y))))
   if (method == 2) {
-    p <- sum(aaply(x, 1, var))
-  } else {
     p <- 2 * sum(aaply(x, 1, function(y) log(mean(exp(y))) - mean(y)))
+  } else {
+    p <- sum(aaply(x, 1, var))
   }
   new("WAIC", -2 * (lppd - p), loglik = lppd, b = p, n = nrow(x))
 }
