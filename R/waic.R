@@ -61,7 +61,7 @@ waic.matrix <- function(x, method=2) {
   } else {
     p <- sum(aaply(x, 1, var))
   }
-  new("WAIC", -2 * (lppd - p), loglik = lppd, b = p, n = nrow(x))
+  new("WAIC", -2 * (lppd - p), loglik = lppd, b = p)
 }
 
 #' @rdname waic-methods
