@@ -55,7 +55,7 @@ waic.matrix <- function(x, method=2) {
     stop("option 'method' must equal 1 or 2")
   }
   # \sum_{i=1}^n \log (\frac{1}{S} \sum_{i=1}^S p(y_i | theta^S))
-  lppd <- sum(aaply(x, 1, function(y) mean(exp(y))))
+  lppd <- sum(log(aaply(x, 1, function(y) mean(exp(y)))))
   if (method == 2) {
     p <- 2 * sum(aaply(x, 1, function(y) log(mean(exp(y))) - mean(y)))
   } else {
