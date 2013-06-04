@@ -1,5 +1,5 @@
 #' @include mcmcstats-package.R
-#' @exportMethod gelmanDiag
+#' @exportMethod rhat
 NULL
 
 ## Sum of squared errors
@@ -16,18 +16,18 @@ sumsqe <- function(x)  sum((x - mean(x))^2)
 #'
 #' @references Stan Manual, Section 27.2.
 #'
-#' @aliases gelmanDiag
-#' @aliases gelmanDiag-method
-#' @aliases gelmanDiag,list-method
-#' @aliases gelmanDiag,numeric-method
-#' @aliases gelmanDiag,matrix-method
+#' @aliases rhat
+#' @aliases rhat-method
+#' @aliases rhat,list-method
+#' @aliases rhat,numeric-method
+#' @aliases rhat,matrix-method
 #' @keywords methods
 #' @docType methods
 #' @references \emph{Stan Reference Manual}, version 1.0.2.
 #' @export
-setGeneric("gelmanDiag", function(x, ...) standardGeneric("gelmanDiag"))
+setGeneric("rhat", function(x, ...) standardGeneric("rhat"))
 
-gelman_diag_list <- function(x)  {
+rhat_list <- function(x)  {
     m <- length(x)
     n <- sapply(x, length)
     w_mean <- sapply(x, mean)
@@ -37,15 +37,15 @@ gelman_diag_list <- function(x)  {
     varplus <- mean(w_sumsqe / n) + b_var
     Rhat <- max(1, sqrt(varplus / W))
 }
-setMethod("gelmanDiag", "list", gelman_diag_list)
+setMethod("rhat", "list", rhat_list)
 
 
-gelman_diag_numeric <- function(x, chain_id) {
-    gelmanDiag(split(x, chain_id))
+rhat_numeric <- function(x, chain_id) {
+    rhat(split(x, chain_id))
 }
-setMethod("gelmanDiag", "numeric", gelman_diag_numeric)
+setMethod("rhat", "numeric", rhat_numeric)
 
-setMethod("gelmanDiag", "matrix",
+setMethod("rhat", "matrix",
           function(x, chain_id) {
-              apply(x, 2, gelmanDiag, chain_id=chain_id)
+              apply(x, 2, rhat, chain_id=chain_id)
           })

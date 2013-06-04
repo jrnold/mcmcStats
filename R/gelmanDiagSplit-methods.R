@@ -1,5 +1,5 @@
 #' @include mcmcstats-package.R
-#' @exportMethod gelmanDiagSplit
+#' @exportMethod rhat_split
 NULL
 
 #' Gelman-Rubin Diagnostic with a Split Single Chain
@@ -13,27 +13,27 @@ NULL
 #'
 #' @references Stan Manual, Section 27.2.
 #'
-#' @aliases gelmanDiagSplit
-#' @aliases gelmanDiagSplit-method
-#' @aliases gelmanDiagSplit,numeric-method
-#' @aliases gelmanDiagSplit,matrix-method
+#' @aliases rhat_split
+#' @aliases rhat_split-method
+#' @aliases rhat_split,numeric-method
+#' @aliases rhat_split,matrix-method
 #' @docType methods
 #' @keywords methods
-setGeneric("gelmanDiagSplit",
+setGeneric("rhat_split",
            function(x, ...) {
-               standardGeneric("gelmanDiagSplit")
+               standardGeneric("rhat_split")
            })
 
-setMethod("gelmanDiagSplit", "numeric",
+setMethod("rhat_split", "numeric",
           function(x, frac1=0.5, frac2=0.5) {
               n <- length(x)
               i1 <- 1:floor(frac1 * n)
               i2 <- ceiling((1 - frac2) * n):n
-              gelmanDiag(list(x[i1], x[i2]))
+              rhat(list(x[i1], x[i2]))
           })
 
-setMethod("gelmanDiagSplit", "matrix",
+setMethod("rhat_split", "matrix",
           function(x, ...) {
-              apply(x, 2, gelmanDiagSplit, ...)
+              apply(x, 2, rhat_split, ...)
           })
 
